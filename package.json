@@ -1,0 +1,13 @@
+{
+  "name": "zonestamp-toolforge",
+  "version": "1.0.0",
+  "description": "A simple deployment of zonestamp for the Wikimedia Toolforge.",
+  "author": "Derk-Jan Hartman",
+  "license": "MIT",
+  "dependencies": {
+    "zonesnap": "github:raquelmsmith/zonestamp"
+  },
+  "scripts": {
+    "build": "sed -i '' 's/zonestamp\\.com/zonestamp\\.toolforge\\.org/' node_modules/zonesnap/src/components/CreateStamp.js; cp files/index.html node_modules/zonesnap/public/; cd node_modules/zonesnap/; npm run build;"
+  }
+}

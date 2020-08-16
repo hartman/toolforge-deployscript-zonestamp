@@ -1,0 +1,19 @@
+- name: create source path
+  file:
+    path: '{{ static_path }}'
+    state: directory
+
+- name: deploy toolinfo.json static files
+  copy:
+    src: "files/toolinfo.json"
+    dest: "{{ static_path }}"
+  loop:
+    - 'toolinfo.json'
+
+- name: Copy the webserver config
+  copy:
+    src: "files/lighttpd.conf"
+    dest: "{{ base_path }}/.lighttpd.conf"
+
+- name: restart the webserver
+  command: webservice restart

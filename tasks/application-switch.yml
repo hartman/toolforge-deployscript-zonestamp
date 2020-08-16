@@ -1,0 +1,11 @@
+---
+- name: switch old and new version of the app
+  command: mv {{ app_path|quote }} {{ app_path_old|quote }}
+
+- name: switch old and new version of the app
+  command: mv {{ app_path_new|quote }} {{ app_path|quote }}
+
+- name: delete old version
+  file:
+    state: absent
+    path: "{{ app_path_old }}"

@@ -1,0 +1,11 @@
+[
+    {
+      "name" : "zonestamp",
+      "title" : "Zonestamp",
+      "description" : "xSchedule an event or make a poll",
+      "url" : "https://zonestamp.toolforge.org/",
+      "keywords" : "timezones,timezone,date,share",
+      "author" : "JeanFred, TheDJ, Raquel Smith",
+      "repository" : "https://github.com/hartman/zonestamp-toolforge"
+    }
+]

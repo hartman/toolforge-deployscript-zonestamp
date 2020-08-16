@@ -1,0 +1,6 @@
+[toolforge]
+login.toolforge.org
+
+[toolforge:vars]
+tool_name='zonestamp'
+base_path='/data/project/{{ tool_name }}'

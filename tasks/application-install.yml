@@ -1,0 +1,12 @@
+---
+- name: create directory
+  file:
+    path: "{{ app_path }}"
+    state: directory
+    mode: '2775'
+
+- name: deploy application files
+  copy:
+    src: "node_modules/zonesnap/build/"
+    dest: "{{ app_path }}"
+    mode: ug=rw,o=r,a+X

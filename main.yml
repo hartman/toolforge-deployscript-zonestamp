@@ -1,0 +1,22 @@
+---
+- hosts: toolforge
+  gather_facts: false
+
+  tasks:
+
+    - import_tasks: tasks/application-install.yml
+      tags: application
+      vars:
+        app_path: "{{ base_path }}/public_html_new"
+
+    - import_tasks: tasks/application-switch.yml
+      tags: application
+      vars:
+        app_path: "{{ base_path }}/public_html"
+        app_path_old: "{{ base_path }}/public_html_old"
+        app_path_new: "{{ base_path }}/public_html_new"
+
+    - import_tasks: tasks/toolforge-bits.yml
+      tags: toolforge
+      vars:
+        static_path: "{{ base_path }}/public_html"
