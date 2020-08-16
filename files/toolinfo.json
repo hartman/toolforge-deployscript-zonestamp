@@ -2,7 +2,7 @@
     {
       "name" : "zonestamp",
       "title" : "Zonestamp",
-      "description" : "xSchedule an event or make a poll",
+      "description" : "A timezone converter for online events. Wikimedia version of https://zonestamp.com by Raquel M. Smith.",
       "url" : "https://zonestamp.toolforge.org/",
       "keywords" : "timezones,timezone,date,share",
       "author" : "JeanFred, TheDJ, Raquel Smith",
