@@ -15,7 +15,7 @@
   replace:
     path: '{{ node_app_dir }}/public/index.html'
     regexp: 'fonts.googleapis.com'
-    replace: 'fonts.googleapis.com/tools-static.wmflabs.org/fontcdn'
+    replace: 'tools-static.wmflabs.org/fontcdn'
 
 - name: Run npm install
   command: npm install
