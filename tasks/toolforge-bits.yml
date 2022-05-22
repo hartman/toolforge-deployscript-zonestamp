@@ -15,5 +15,9 @@
     src: "files/lighttpd.conf"
     dest: "{{ base_path }}/.lighttpd.conf"
 
-- name: restart the webserver
-  command: webservice restart
+- name: stop the webserver
+  command: webservice stop
+
+- name: start the webserver
+  command: webservice start
+
