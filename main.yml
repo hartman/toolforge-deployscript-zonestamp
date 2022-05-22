@@ -1,12 +1,24 @@
 ---
+- hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+  - import_tasks: tasks/application-build.yml
+    vars:
+      node_app_dir: './zonestamp'
+      public_url: 'https://zonestamp.toolforge.org'
+      server_name: 'zonestamp.toolforge.org'
+
 - hosts: toolforge
+  become: yes
+  become_user: tools.zonestamp
   gather_facts: false
 
   tasks:
-
     - import_tasks: tasks/application-install.yml
       tags: application
       vars:
+        build_path: './zonestamp/build/'
         app_path: "{{ base_path }}/public_html_new"
 
     - import_tasks: tasks/application-switch.yml

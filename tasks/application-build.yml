@@ -1,0 +1,31 @@
+---
+- name: Git checkout
+  ansible.builtin.git:
+    repo: 'https://github.com/hartman/zonestamp.git'
+    dest: '{{ node_app_dir }}'
+    update: true
+    force: true
+
+- name: Check for package.json
+  ansible.builtin.stat:
+    path: '{{ node_app_dir }}/package.json'
+  register: packagejson
+
+- name: Patch code
+  replace:
+    path: '{{ node_app_dir }}/public/index.html'
+    regexp: 'fonts.googleapis.com'
+    replace: 'fonts.googleapis.com/tools-static.wmflabs.org/fontcdn'
+
+- name: Run npm install
+  command: npm install
+  args:
+    chdir: '{{ node_app_dir }}'
+  when: packagejson.stat.exists
+
+- name: Build app
+  command: npm run build
+  args:
+    chdir: '{{ node_app_dir }}'
+  environment:
+    PUBLIC_URL: '{{ public_url }}'

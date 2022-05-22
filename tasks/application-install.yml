@@ -7,6 +7,6 @@
 
 - name: deploy application files
   copy:
-    src: "node_modules/zonesnap/build/"
+    src: "{{ build_path }}"
     dest: "{{ app_path }}"
     mode: ug=rw,o=r,a+X
