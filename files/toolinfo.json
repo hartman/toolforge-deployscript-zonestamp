@@ -5,7 +5,7 @@
       "description" : "A timezone converter for online events. Wikimedia version of https://zonestamp.com by Raquel M. Smith.",
       "url" : "https://zonestamp.toolforge.org/",
       "keywords" : "timezones,timezone,date,share",
-      "author" : "JeanFred, TheDJ, Raquel Smith",
+      "author" : "JeanFred, TheDJ, Tisza Gergő, Raquel Smith",
       "repository" : "https://github.com/hartman/zonestamp-toolforge"
     }
 ]
