@@ -6,7 +6,11 @@
     mode: '2775'
 
 - name: deploy application files
-  copy:
+  ansible.posix.synchronize:
     src: "{{ build_path }}"
     dest: "{{ app_path }}"
-    mode: ug=rw,o=r,a+X
+    archive: true
+    owner: false
+    group: false
+    rsync_opts:
+      - "--chmod=Dug=rwx,Dg+s,Do=rx,Fug=rw,Fo=r"
